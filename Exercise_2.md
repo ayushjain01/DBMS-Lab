@@ -183,7 +183,7 @@ WHERE 1=2);
 ```sql
 DECLARE
     cursor c1 is select * from supply;
-    v_rec employee%rowtype;
+    v_rec supply%rowtype;
 BEGIN
     open c1;
     loop
