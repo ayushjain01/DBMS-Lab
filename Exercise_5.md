@@ -164,7 +164,7 @@ DECLARE
     a number := 0;
     b number := 1;
     c number := 0;
-    count number := 2;
+    counter number := 2;
 
 PROCEDURE fibonacci is
 	BEGIN
@@ -174,10 +174,10 @@ PROCEDURE fibonacci is
             dbms_output.put_line(c);
             a := b;
             b := c;
-            count := count + 1;
+            counter := counter + 1;
         end loop;
     END;
-BEGIN;
+BEGIN
   dbms_output.put_line("Fibonacci Series : ");
 	dbms_output.put_line(a);
 	dbms_output.put_line(b);
