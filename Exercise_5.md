@@ -111,7 +111,7 @@ GROUP BY student.sid;
 
 ![Output3](https://user-images.githubusercontent.com/67141217/213429633-21e12da3-513b-491b-a71c-6e80a8115016.png)
 
- 4. List the books that begin with the letters “DA” and has never been borrowed by any students.
+ 4. List the books that begin with the letters “DB” and has never been borrowed by any students.
  
  ```sql
 SELECT title
