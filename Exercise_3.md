@@ -1,4 +1,4 @@
-# Exercise-II
+# Exercise-III
 Consider the relations BOAT, SAILOR and RESERVES. The relation BOAT identifies the features of a boat such as unique identifier, color and a name. The list of sailors with attributes such as SailorID, name, age etc., are stored in the relation SAILOR. The sailors are allowed to reserve any number of boats on any day of the week and the records are to be updated in the RESERVES table. 
 
 a) Mention the constrainst neatly.
