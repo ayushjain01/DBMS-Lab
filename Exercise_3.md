@@ -156,7 +156,7 @@ WHERE boat.bname = sailor.sname;
 e) Create the table, insert suitable tuples and perform the following operations using MongoDB
 
 ```javascript
-db.createCollection("baots")
+db.createCollection("boats")
 db.boats.insertMany([
     {"BID": 123, "BName" :'Vikrant',"Color" : 'Black', "SName" : "Gupta", "SNo":1111 },
     {"BID": 321, "BName" :'Maria',"Color" : 'Blue', "SName" : "Shyam", "SNo":1115 },
