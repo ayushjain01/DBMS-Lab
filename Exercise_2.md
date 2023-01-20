@@ -24,22 +24,22 @@ CREATE TABLE supply (
 );
 
 INSERT ALL
-INTO part VALUES (101, "Bolts", "Red")
-INTO part VALUES (102, "Nuts", "Red")
-INTO part VALUES (103, "Plugs", "Red")
-INTO part VALUES (104, "Bolts", "Green")
-INTO part VALUES (105, "Nuts", "Green")
-INTO part VALUES (106, "Plugs", "Green")
-INTO part VALUES (107, "Bolts", "Blue")
-INTO part VALUES (108, "Nuts", "Blue")
-INTO part VALUES (109, "Plugs", "Blue")
+INTO part VALUES (101, 'Bolts', 'Red')
+INTO part VALUES (102, 'Nuts', 'Red')
+INTO part VALUES (103, 'Plugs', 'Red')
+INTO part VALUES (104, 'Bolts', 'Green')
+INTO part VALUES (105, 'Nuts', 'Green')
+INTO part VALUES (106, 'Plugs', 'Green')
+INTO part VALUES (107, 'Bolts', 'Blue')
+INTO part VALUES (108, 'Nuts', 'Blue')
+INTO part VALUES (109, 'Plugs', 'Blue')
 SELECT * FROM DUAL;
 
 INSERT ALL 
-INTO supplier VALUES (1, "Ram", "Bangalore")
-INTO supplier VALUES (2, "Shyam", "Delhi")
-INTO supplier VALUES (3, "Harish", "Bombay")
-INTO supplier VALUES (4, "Manish", "Chennai")
+INTO supplier VALUES (1, 'Ram', 'Bangalore')
+INTO supplier VALUES (2, 'Shyam', 'Delhi')
+INTO supplier VALUES (3, 'Harish', 'Bombay')
+INTO supplier VALUES (4, 'Manish', 'Chennai')
 SELECT * FROM DUAL;
 
 INSERT ALL
@@ -86,7 +86,7 @@ WHERE pid IN (SELECT pid
               FROM supply
               WHERE sid IN ( SELECT sid
                             FROM supplier
-                            WHERE sname = "Manish"));
+                            WHERE sname = 'Manish'));
 ```
 
 ![Output1](https://user-images.githubusercontent.com/67141217/212524576-595695a0-8e5f-4442-adba-e55cbad6b641.png)
@@ -100,7 +100,7 @@ WHERE sid IN (SELECT sid
               FROM supply
               WHERE pid IN ( SELECT pid
                             FROM part
-                            WHERE pname = "Plugs"));
+                            WHERE pname = 'Plugs'));
 ```
 ![Output2](https://user-images.githubusercontent.com/67141217/212524826-08e7adc2-0d71-45e8-9aae-5d83f51bf5cc.png)
 
@@ -108,7 +108,7 @@ WHERE sid IN (SELECT sid
 
 ```sql
 DELETe FROM part
-WHERE pcolor = "Green";
+WHERE pcolor = 'Green';
 
 SELECT * 
 FROM PART;
@@ -134,13 +134,13 @@ WHERE sid IN (SELECT sid
 e) Create the table, insert suitable tuples and perform the following operations using MongoDB
 
 ```javascript
-db.createCollection("warehouse")
+db.createCollection('warehouse')
 db.warehouse.insertMany([
-    {"PNo": 123, "PName" :'Bolts',"Color" : 'Black', "SName" : "Ram", "SNo":1111 , "Address" : "Mumbai"},
-    {"PNo": 321, "PName" :'Chain',"Color" : 'Blue', "SName" : "Shyam", "SNo":1115 , "Address" : "Bangalore"},
-    {"PNo": 124, "PName" :'Chain',"Color" : 'Blue', "SName" : "Raju", "SNo":5111 , "Address" : "Chennai"},
-    {"PNo": 312, "PName" :'Wheels',"Color" : 'Green', "SName" : "Kaju", "SNo":4511 , "Address" : "Pune"},
-    {"PNo": 122, "PName" :'Nuts',"Color" : 'White', "SName" : "Manish", "SNo":3111 , "Address" : "Delhi"}
+    {'PNo': 123, 'PName' :'Bolts','Color' : 'Black', 'SName' : 'Ram', 'SNo':1111 , 'Address' : 'Mumbai'},
+    {'PNo': 321, 'PName' :'Chain','Color' : 'Blue', 'SName' : 'Shyam', 'SNo':1115 , 'Address' : 'Bangalore'},
+    {'PNo': 124, 'PName' :'Chain','Color' : 'Blue', 'SName' : 'Raju', 'SNo':5111 , 'Address' : 'Chennai'},
+    {'PNo': 312, 'PName' :'Wheels','Color' : 'Green', 'SName' : 'Kaju', 'SNo':4511 , 'Address' : 'Pune'},
+    {'PNo': 122, 'PName' :'Nuts','Color' : 'White', 'SName' : 'Manish', 'SNo':3111 , 'Address' : 'Delhi'}
 ])
 ```
 
@@ -148,7 +148,7 @@ db.warehouse.insertMany([
 1. Update the details of parts for a given part identifier: #PID. 
 
 ```javascript
-db.warehouse.update({"PNo":122, {$set : {"Color":'Black'}},{multi:true}})
+db.warehouse.update({'PNo':122, {$set : {'Color':'Black'}},{multi:true}})
 db.warehouse.find().pretty()
 ```
 
@@ -160,7 +160,7 @@ db.warehouse.find().pretty()
 2. Display all suppliers who supply the part with part identifier: #PID.
 
 ```javascript
-db.warehouse.find({"PNo":122}).pretty()
+db.warehouse.find({'PNo':122}).pretty()
 ```
 
 ![MongoOutput2](https://user-images.githubusercontent.com/67141217/212525720-6e7555ed-5862-45e7-8acc-2f42dddbf79e.png)

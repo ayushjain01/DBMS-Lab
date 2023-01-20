@@ -24,27 +24,27 @@ CREATE TABLE reserve (
 
 
 INSERT ALL
-INTO boat VALUES (101, "Vikrant", "Red")
-INTO boat VALUES (102, "Maria", "Red")
-INTO boat VALUES (103, "Santa", "Red")
-INTO boat VALUES (104, "Cholan", "Green")
-INTO boat VALUES (105, "Dange", "Green")
-INTO boat VALUES (106, "Dhoka", "Green")
-INTO boat VALUES (107, "Britannic", "Blue")
-INTO boat VALUES (108, "Clement", "Blue")
-INTO boat VALUES (109, "Khaja", "Blue")
-INTO boat VALUES (110, "Burugina","Black")
+INTO boat VALUES (101, 'Vikrant', 'Red')
+INTO boat VALUES (102, 'Maria', 'Red')
+INTO boat VALUES (103, 'Santa', 'Red')
+INTO boat VALUES (104, 'Cholan', 'Green')
+INTO boat VALUES (105, 'Dange', 'Green')
+INTO boat VALUES (106, 'Dhoka', 'Green')
+INTO boat VALUES (107, 'Britannic', 'Blue')
+INTO boat VALUES (108, 'Clement', 'Blue')
+INTO boat VALUES (109, 'Khaja', 'Blue')
+INTO boat VALUES (110, 'Burugina','Black')
 SELECT * FROM DUAL;
 
 INSERT ALL 
-INTO sailor VALUES (1, "Gupta", 25)
-INTO sailor VALUES (2, "Shyam", 45)
-INTO sailor VALUES (3, "Harish", 34)
-INTO sailor VALUES (4, "Joshi", 43)
-INTO sailor VALUES (5, "Burugina", 23)
-INTO sailor VALUES (6, "Chetan", 22)
-INTO sailor VALUES (7, "Chris", 33)
-INTO sailor VALUES (8, "Jacob", 44)
+INTO sailor VALUES (1, 'Gupta', 25)
+INTO sailor VALUES (2, 'Shyam', 45)
+INTO sailor VALUES (3, 'Harish', 34)
+INTO sailor VALUES (4, 'Joshi', 43)
+INTO sailor VALUES (5, 'Burugina', 23)
+INTO sailor VALUES (6, 'Chetan', 22)
+INTO sailor VALUES (7, 'Chris', 33)
+INTO sailor VALUES (8, 'Jacob', 44)
 SELECT * FROM DUAL;
 
 INSERT ALL
@@ -97,7 +97,7 @@ WHERE bid IN ( SELECT bid
               FROM reserves
               WHERE sid IN (SELECT sid 
                            FROM sailor
-                           WHERE sname = "Joshi"));
+                           WHERE sname = 'Joshi'));
 ```
 
 ![Output1](https://user-images.githubusercontent.com/67141217/212527029-c65f871d-1442-4172-893f-4f587c98132d.png)
@@ -132,7 +132,7 @@ WHERE bid in(SELECT bid
  3. Find the number of boats reserved by each sailor. Display the Sailor_Name along with the number of boats reserved.
 
 ```sql
-SELECT sailor.sname, COUNT(reserves.bid) AS "No. of Boats Reserved"
+SELECT sailor.sname, COUNT(reserves.bid) AS 'No. of Boats Reserved'
 FROM sailor,reserves
 WHERE reserves.sid = sailor.sid
 GROUP BY sname;
@@ -156,16 +156,16 @@ WHERE boat.bname = sailor.sname;
 e) Create the table, insert suitable tuples and perform the following operations using MongoDB
 
 ```javascript
-db.createCollection("boats")
+db.createCollection('boats')
 db.boats.insertMany([
-    {"BID": 123, "BName" :'Vikrant',"Color" : 'Black', "SName" : "Gupta", "SNo":1111 },
-    {"BID": 321, "BName" :'Maria',"Color" : 'Blue', "SName" : "Shyam", "SNo":1115 },
-    {"BID": 124, "BName" :'Cholan',"Color" : 'Blue', "SName" : "Joshi", "SNo":5111 },
-    {"BID": 312, "BName" :'Britannic',"Color" : 'Green', "SName" : "Chetan", "SNo":4511},
-    {"BID": 122, "BName" :'Burugina',"Color" : 'White', "SName" : "Jacob", "SNo":3111 },
-    {"BID": 124, "BName" :'Cholan',"Color" : 'Blue', "SName" : "Jacob", "SNo":3111 },
-    {"BID": 312, "BName" :'Britannic',"Color" : 'Green', "SName" : "Jacob", "SNo":3111},
-    {"BID": 122, "BName" :'Burugina',"Color" : 'White', "SName" : "Jacob", "SNo":3111 }
+    {'BID': 123, 'BName' :'Vikrant','Color' : 'Black', 'SName' : 'Gupta', 'SNo':1111 },
+    {'BID': 321, 'BName' :'Maria','Color' : 'Blue', 'SName' : 'Shyam', 'SNo':1115 },
+    {'BID': 124, 'BName' :'Cholan','Color' : 'Blue', 'SName' : 'Joshi', 'SNo':5111 },
+    {'BID': 312, 'BName' :'Britannic','Color' : 'Green', 'SName' : 'Chetan', 'SNo':4511},
+    {'BID': 122, 'BName' :'Burugina','Color' : 'White', 'SName' : 'Jacob', 'SNo':3111 },
+    {'BID': 124, 'BName' :'Cholan','Color' : 'Blue', 'SName' : 'Jacob', 'SNo':3111 },
+    {'BID': 312, 'BName' :'Britannic','Color' : 'Green', 'SName' : 'Jacob', 'SNo':3111},
+    {'BID': 122, 'BName' :'Burugina','Color' : 'White', 'SName' : 'Jacob', 'SNo':3111 }
 ])
 ```
 
@@ -173,7 +173,7 @@ db.boats.insertMany([
 1. Update the details of parts for a given part identifier: #PID. 
 
 ```javascript
-db.boats.find({"SName":"Jacob"}).count()
+db.boats.find({'SName':'Jacob'}).count()
 ```
 
 ![mongooutput](https://user-images.githubusercontent.com/67141217/212531120-91b17612-bdec-4a8a-ab86-074e66daa545.png)
@@ -181,7 +181,7 @@ db.boats.find({"SName":"Jacob"}).count()
 2. Retrieve boats of color :”#color”
 
 ```javascript
-db.boats.find({"Color":'Blue'}).pretty()
+db.boats.find({'Color':'Blue'}).pretty()
 ```
 
 ![image](https://user-images.githubusercontent.com/67141217/212531174-eccefb78-05f3-491b-854b-4bd069f89b23.png)
@@ -198,7 +198,7 @@ DECLARE
 BEGIN
 	while(j<=n/2) loop
     	if mod(n,j) =0 then
-        	dbms_output.put_line(n || "is not a prime number");
+        	dbms_output.put_line(n || 'is not a prime number');
             count := 1;
             exit;
         else
@@ -206,7 +206,7 @@ BEGIN
         end if;
     end loop;
     if count = 0 then
-    	dmbs_output.put_line(n || "is a prime number");
+    	dmbs_output.put_line(n || 'is a prime number');
     end if;
 END;
 /

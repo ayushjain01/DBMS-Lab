@@ -25,33 +25,33 @@ CREATE TABLE borrows (
 );
 
 INSERT ALL
-INTO books VALUES (101, "C Programming", "Reema Thareja")
-INTO books VALUES (102, "Computer Networks", "V S Bagad")
-INTO books VALUES (103, "OOPS with Java", "Siddharth Santosh")
-INTO books VALUES (104, "Software Engineering", "T Dayar")
-INTO books VALUES (105, "Python Programming", "Sumita Arora")
-INTO books VALUES (106, "DBMS", "Sumita Arora")
+INTO books VALUES (101, 'C Programming', 'Reema Thareja')
+INTO books VALUES (102, 'Computer Networks', 'V S Bagad')
+INTO books VALUES (103, 'OOPS with Java', 'Siddharth Santosh')
+INTO books VALUES (104, 'Software Engineering', 'T Dayar')
+INTO books VALUES (105, 'Python Programming', 'Sumita Arora')
+INTO books VALUES (106, 'DBMS', 'Sumita Arora')
 SELECT * FROM DUAL;
 
 INSERT ALL 
-INTO student VALUES (1, "Ram", "M")
-INTO student VALUES (2, "Sita", "F")
-INTO student VALUES (3, "Shyam", "M")
-INTO student VALUES (4, "Manish", "M")
-INTO student VALUES (5, "Harish", "M")
-INTO student VALUES (6, "Gopal", "M")
+INTO student VALUES (1, 'Ram', 'M')
+INTO student VALUES (2, 'Sita', 'F')
+INTO student VALUES (3, 'Shyam', 'M')
+INTO student VALUES (4, 'Manish', 'M')
+INTO student VALUES (5, 'Harish', 'M')
+INTO student VALUES (6, 'Gopal', 'M')
 SELECT * FROM DUAL;
 
 INSERT ALL
-INTO borrows VALUES (1,101,"1-2-22")
-INTO borrows VALUES (1,102,"1-2-22")
-INTO borrows VALUES (2,101,"1-3-22")
-INTO borrows VALUES (2,103,"1-4-22")
-INTO borrows VALUES (2,104,"1-3-22")
-INTO borrows VALUES (3,102,"1-4-22")
-INTO borrows VALUES (4,102,"1-5-22")
-INTO borrows VALUES (5,105,"1-6-22")
-INTO borrows VALUES (6,105,"1-7-22")
+INTO borrows VALUES (1,101,'1-2-22')
+INTO borrows VALUES (1,102,'1-2-22')
+INTO borrows VALUES (2,101,'1-3-22')
+INTO borrows VALUES (2,103,'1-4-22')
+INTO borrows VALUES (2,104,'1-3-22')
+INTO borrows VALUES (3,102,'1-4-22')
+INTO borrows VALUES (4,102,'1-5-22')
+INTO borrows VALUES (5,105,'1-6-22')
+INTO borrows VALUES (6,105,'1-7-22')
 SELECT * FROM DUAL;
 
 
@@ -95,15 +95,15 @@ WHERE sid IN ( SELECT sid
              FROM borrows 
              WHERE isbn IN ( SELECT isbn 
                            FROM books
-                           WHERE title = "OOPS with Java"))
-AND gender = "F";
+                           WHERE title = 'OOPS with Java'))
+AND gender = 'F';
 ```
 ![Output2](https://user-images.githubusercontent.com/67141217/213429009-cb5d3d41-9e60-42ef-a870-0c4f449356b8.png)
 
  3. Find the number of books borrowed by each student. Display the student details along with the number of books.
 
 ```sql
-SELECT student.sid, name, gender, COUNT(borrows.isbn) as "No. of Books Issued"
+SELECT student.sid, name, gender, COUNT(borrows.isbn) as 'No. of Books Issued'
 FROM student, borrows
 WHERE student.sid = borrows.sid
 GROUP BY student.sid;
@@ -116,7 +116,7 @@ GROUP BY student.sid;
  ```sql
 SELECT title
 FROM books
-WHERE title like "DB%"
+WHERE title like 'DB%'
 AND isbn NOT IN (SELECT DISTINCT isbn 
                 FROM borrows);
               
@@ -127,13 +127,13 @@ AND isbn NOT IN (SELECT DISTINCT isbn
 e) Create the table, insert suitable tuples and perform the following operations using MongoDB
 
 ```javascript
-db.createCollection("Library")
+db.createCollection('Library')
 db.Library.insertMany([
-    {"ISBN": 101, "Title" :'C Programming',"Author" : 'Reema Thareja', "SName" : "Ram", "SID":1 , "Date" : "1-2-22"},
-    {"ISBN": 101, "Title" :'C Programming',"Author" : 'Reema Thareja', "SName" : "Sita", "SID":2 , "Date" : "1-2-22"},
-    {"ISBN": 101, "Title" :'C Programming',"Author" : 'Reema Thareja', "SName" : "Manish", "SID":4 , "Date" : "1-2-22"},
-    {"ISBN": 102, "Title" :'DBMS',"Author" : 'Reema Thareja', "SName" : "Ram", "SID":1 , "Date" : "1-2-22"},
-    {"ISBN": 103, "Title" :'Python Programming',"Author" : 'Sumita Arora', "SName" : "Sita", "SID":2 , "Date" : "1-2-22"},
+    {'ISBN': 101, 'Title' :'C Programming','Author' : 'Reema Thareja', 'SName' : 'Ram', 'SID':1 , 'Date' : '1-2-22'},
+    {'ISBN': 101, 'Title' :'C Programming','Author' : 'Reema Thareja', 'SName' : 'Sita', 'SID':2 , 'Date' : '1-2-22'},
+    {'ISBN': 101, 'Title' :'C Programming','Author' : 'Reema Thareja', 'SName' : 'Manish', 'SID':4 , 'Date' : '1-2-22'},
+    {'ISBN': 102, 'Title' :'DBMS','Author' : 'Reema Thareja', 'SName' : 'Ram', 'SID':1 , 'Date' : '1-2-22'},
+    {'ISBN': 103, 'Title' :'Python Programming','Author' : 'Sumita Arora', 'SName' : 'Sita', 'SID':2 , 'Date' : '1-2-22'},
 ])
 ```
 
@@ -141,7 +141,7 @@ db.Library.insertMany([
 1. Obtain the book details authored by “author_name”. 
 
 ```javascript
-db.Library.distinct("Title",{ "Author":"Reema Thareja"})
+db.Library.distinct('Title',{ 'Author':'Reema Thareja'})
 ```
 
 ![MongoOut1](https://user-images.githubusercontent.com/67141217/213432152-878f074c-e49d-4c61-8a0d-9f2529099a15.png)
@@ -150,7 +150,7 @@ db.Library.distinct("Title",{ "Author":"Reema Thareja"})
 2. Obtain the Names of students who have borrowed “C Programming” books.
 
 ```javascript
-db.Library.find({"Title" :'C Programming'}, { _id : 0, "SName" : 1}).pretty()
+db.Library.find({'Title' :'C Programming'}, { _id : 0, 'SName' : 1}).pretty()
 ```
 
 ![image](https://user-images.githubusercontent.com/67141217/213432403-b10180a1-f276-4afd-8ed3-23cfbcb6858f.png)
@@ -178,7 +178,7 @@ PROCEDURE fibonacci is
         end loop;
     END;
 BEGIN
-  dbms_output.put_line("Fibonacci Series : ");
+  dbms_output.put_line('Fibonacci Series : ');
 	dbms_output.put_line(a);
 	dbms_output.put_line(b);
 	fibonacci;

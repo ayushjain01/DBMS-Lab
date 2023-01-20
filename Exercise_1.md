@@ -26,20 +26,20 @@ CREATE TABLE workson (
 );
 
 INSERT ALL
-INTO employee VALUES (123, "John", 30000, 3)
-INTO employee VALUES (321, "Franklin", 40000, 3)
-INTO employee VALUES (124, "Alicia", 35000, 2)
-INTO employee VALUES (312, "Mark", 60000, 2)
-INTO employee VALUES (122, "Bill", 70000, 1)
-INTO employee VALUES (120, "James", 10000, 1)
+INTO employee VALUES (123, 'John', 30000, 3)
+INTO employee VALUES (321, 'Franklin', 40000, 3)
+INTO employee VALUES (124, 'Alicia', 35000, 2)
+INTO employee VALUES (312, 'Mark', 60000, 2)
+INTO employee VALUES (122, 'Bill', 70000, 1)
+INTO employee VALUES (120, 'James', 10000, 1)
 SELECT * FROM DUAL;
 
 INSERT ALL 
-INTO project VALUES (1111, "Product X", "IoT")
-INTO project VALUES (2111, "Product Y", "Database")
-INTO project VALUES (2311, "Product Z", "Database")
-INTO project VALUES (4411, "Product W", "Cloud")
-INTO project VALUES (2511, "Product V", "AR/VR")
+INTO project VALUES (1111, 'Product X', 'IoT')
+INTO project VALUES (2111, 'Product Y', 'Database')
+INTO project VALUES (2311, 'Product Z', 'Database')
+INTO project VALUES (4411, 'Product W', 'Cloud')
+INTO project VALUES (2511, 'Product V', 'AR/VR')
 SELECT * FROM DUAL;
 
 INSERT ALL
@@ -83,7 +83,7 @@ WHERE ssn IN (SELECT ssn
               FROM workson
               WHERE pno IN (SELECT pno
                             FROM project
-                            WHERE domain = "Database" ));
+                            WHERE domain = 'Database' ));
 ```
 
 ![Output1](https://user-images.githubusercontent.com/67141217/212472893-6279c293-84f0-425c-b3ed-4a55f31cfdf3.png)
@@ -91,7 +91,7 @@ WHERE ssn IN (SELECT ssn
  2. Find the number of employees working in each department with department details.
 
 ```sql
-SELECT DNo, count(ssn) as "No. of Employees"
+SELECT DNo, count(ssn) as 'No. of Employees'
 FROM employee
 GROUP BY DNo;
 ```
@@ -115,7 +115,7 @@ WHERE ssn = 120;
  4. Retrieve the employee who has not been assigned more than two projects.
  
  ```sql
- SELECT ssn, count(pno) as "Projects Assigned"
+ SELECT ssn, count(pno) as 'Projects Assigned'
 FROM workson
 GROUP BY ssn
 HAVING count(pno)<=2;
@@ -127,14 +127,14 @@ HAVING count(pno)<=2;
 e) Create the table, insert suitable tuples and perform the following operations using MongoDB
 
 ```javascript
-db.createCollection("employee")
+db.createCollection('employee')
 db.employee.insertMany([
-    {"SSN": 123, "Name" :'John', "DName" : "Research", "PNo":1111},
-    {"SSN": 321, "Name" :'Franklin', "DName" : "Research", "PNo":1115},
-    {"SSN": 124, "Name" :'Alicia', "DName" : "Admin", "PNo":5111},
-    {"SSN": 312, "Name" :'Mark', "DName" : "Admin", "PNo":4511},
-    {"SSN": 122, "Name" :'Bill', "DName" : "Finance", "PNo":3111},
-    {"SSN": 120, "Name" :'James', "DName" : "Finance", "PNo":2111}
+    {'SSN': 123, 'Name' :'John', 'DName' : 'Research', 'PNo':1111},
+    {'SSN': 321, 'Name' :'Franklin', 'DName' : 'Research', 'PNo':1115},
+    {'SSN': 124, 'Name' :'Alicia', 'DName' : 'Admin', 'PNo':5111},
+    {'SSN': 312, 'Name' :'Mark', 'DName' : 'Admin', 'PNo':4511},
+    {'SSN': 122, 'Name' :'Bill', 'DName' : 'Finance', 'PNo':3111},
+    {'SSN': 120, 'Name' :'James', 'DName' : 'Finance', 'PNo':2111}
     ])
 ```
 
@@ -142,7 +142,7 @@ db.employee.insertMany([
 1. List all the employees of Department named #Dept_name.
 
 ```javascript
-db.employee.find({"DName":'Finance'}).pretty()
+db.employee.find({'DName':'Finance'}).pretty()
 ```
 
 ![MongoOutput1](https://user-images.githubusercontent.com/67141217/212474928-773a09b4-496a-4500-8930-511a7b59e3b1.png)
@@ -150,7 +150,7 @@ db.employee.find({"DName":'Finance'}).pretty()
 2. Name the employees working on Project Number :#Project_No
 
 ```javascript
-db.employee.find({"PNo":1111}).pretty()
+db.employee.find({'PNo':1111}).pretty()
 ```
 
 ![MongoOutput2](https://user-images.githubusercontent.com/67141217/212474966-e457f2e9-0be0-412a-afc8-9ee452ca4f27.png)
